@@ -1,0 +1,535 @@
+
+:root {
+    --black: #0b0b0f;
+    --panel: #16161d;
+    --red: #e10600;
+    --white: #f5f5f7;
+    --muted: #8e8e93;
+    --line: #2c2c35;
+    --font: 'Titillium Web', 'Segoe UI', sans-serif;
+
+    /* Cores das Equipes */
+    --ferrari: #e10600;
+    --mclaren: #ff8000;
+    --mercedes: #00d2be;
+    --audi: #a6a6a6;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background: var(--black);
+    color: var(--white);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input, select, textarea, button {
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title span {
+    color: var(--red);
+}
+
+.btn-primary {
+    background: var(--red);
+    color: var(--white);
+    padding: 12px 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #c00500;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 12px 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--line);
+    background: var(--black);
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+}
+
+.menu a {
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.menu a:hover {
+    color: var(--white);
+}
+
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 60px 40px 80px 40px;
+    min-height: 480px;
+    background: 
+        linear-gradient(110deg, 
+            var(--black) 0%, var(--black) 62%, 
+            var(--red) 62%, var(--red) 64%, 
+            rgba(11, 11, 15, 0.35) 64%),
+        url("img/piloto.jpg") right center / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 580px;
+}
+
+.hero .subtitle {
+    color: var(--red);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 5.5rem;
+    line-height: 0.95;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--red);
+}
+
+.hero .description {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin-bottom: 28px;
+    max-width: 460px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.track-info {
+    display: flex;
+    background: rgba(11, 11, 15, 0.6);
+    backdrop-filter: blur(4px);
+    padding: 10px 0;
+}
+
+.track-info .info {
+    padding: 0 24px;
+    border-left: 1px solid var(--line);
+    text-align: left;
+}
+
+.track-info .info:first-child {
+    border-left: none;
+}
+
+.track-info .number {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+}
+
+.track-info .label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.kerb {
+    height: 12px;
+    background: repeating-linear-gradient(90deg,
+        var(--red) 0, var(--red) 40px,
+        var(--white) 40px, var(--white) 80px);
+}
+
+
+.drivers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.team-ferrari { --team: var(--ferrari); }
+.team-mclaren { --team: var(--mclaren); }
+.team-mercedes { --team: var(--mercedes); }
+.team-audi { --team: var(--audi); }
+
+.driver-card {
+    background: var(--panel);
+    border-top: 5px solid var(--team);
+    padding: 24px 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.driver-card:hover {
+    transform: translateY(-6px);
+}
+
+.driver-card .car-number {
+    font-size: 5rem;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--team);
+    opacity: 0.35;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.driver-card h3 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.driver-card h3 strong {
+    font-weight: 900;
+}
+
+.driver-card p {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+
+.filters {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 24px;
+}
+
+.filters .flex-1 {
+    flex: 1;
+}
+
+.filters .btn-filter {
+    height: 42px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+    background: #0d0d12;
+    border: 1px solid var(--line);
+    color: var(--white);
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--red);
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.classification-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--panel);
+    text-align: left;
+}
+
+.classification-table th {
+    padding: 14px 18px;
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--line);
+}
+
+.classification-table td {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+}
+
+.classification-table tbody tr {
+    transition: background 0.2s;
+}
+
+.classification-table tbody tr:hover {
+    background: #1e1e28;
+}
+
+.pos {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    background: var(--white);
+    color: var(--black);
+    font-weight: 900;
+    font-size: 0.9rem;
+}
+
+.leader {
+    background: rgba(225, 6, 0, 0.12);
+}
+
+.leader .pos {
+    background: var(--red);
+    color: var(--white);
+}
+
+.bar {
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 8px;
+    background: var(--team);
+}
+
+
+.tickets {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 40px;
+}
+
+.tickets-description {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.alert-box {
+    background: #2a2400;
+    border-left: 4px solid #e6b800;
+    color: #ffeb99;
+    padding: 12px 16px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+}
+
+.prices-list {
+    list-style: none;
+}
+
+.prices-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.prices-list .price {
+    color: var(--red);
+    font-size: 1.1rem;
+}
+
+.ticket-form {
+    background: var(--panel);
+    padding: 32px;
+    border-top: 4px solid var(--red);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-grid .full {
+    grid-column: 1 / -1;
+}
+
+.help-text {
+    color: var(--muted);
+    font-size: 0.75rem;
+    margin-top: 4px;
+}
+
+.btn-submit {
+    margin-top: 10px;
+    padding: 14px;
+    font-size: 1rem;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.footer span {
+    color: var(--red);
+    font-weight: 900;
+}
+
+.footer strong {
+    color: var(--white);
+}
+
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    .topbar {
+        padding: 16px 20px;
+    }
+
+    .hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 20px;
+        background: var(--black);
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .track-info {
+        margin-top: 30px;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .drivers {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .classification-table {
+        min-width: 620px;
+    }
+
+    .classification-table td {
+        white-space: nowrap;
+    }
+
+    .tickets {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
